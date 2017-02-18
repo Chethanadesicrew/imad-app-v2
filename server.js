@@ -5,8 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-
-var articleone - {
+var articles = {
+ 'article-one' = {
 title: 'Article One / chethana',
 heading: 'Article One',
 date: 'February 16th, 2017',
@@ -19,7 +19,29 @@ content:
 
 
 
-};
+},
+ 'article-two' ={
+     title: 'Article Two / chethana',
+heading: 'Article Two',
+date: 'February 16th, 2017',
+content:     
+                <p>
+                    Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that proves just how dangerous sea creatures can be -- and he even caught it all on video.
+                    Henricks, 35, was fishing off the coast of Australia when a bull shark charged at him at full speed, only to impale himself on Danny's spear gun.
+                    The hair-raising clip has been video more than three million times (and counting) since Henricks uploaded it last month.
+                </p> '
+ },
+ 'article-three' ={
+     title: 'Article Three / chethana',
+heading: 'Article Three',
+date: 'February 20th, 2017',
+content:     
+                <p>
+                    Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that proves just how dangerous sea creatures can be -- and he even caught it all on video.
+                    Henricks, 35, was fishing off the coast of Australia when a bull shark charged at him at full speed, only to impale himself on Danny's spear gun.
+                    The hair-raising clip has been video more than three million times (and counting) since Henricks uploaded it last month.
+                </p> '
+ };
 
 function createtemplate (data) {
     var title = data.title;
@@ -63,14 +85,12 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one', function (req, res) {
-   res.send(createTemplate(articleone));
+    //articlename == article-one
+    //articles[articlename] == {} content object for the article one
+    var articlename = req.params.articlename;
+   res.send(createTemplate(articles[articlename]));
 });
-app.get('/article-two', function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three', function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
+
     app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
