@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles = {
- 'article-one' = {
+ 'article-one' : {
 title: 'Article One / chethana',
 heading: 'Article One',
 date: 'February 16th, 2017',
@@ -15,7 +15,8 @@ content:
                     Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that proves just how dangerous sea creatures can be -- and he even caught it all on video.
                 </p> '
 },
- 'article-two' ={
+
+ 'article-two' : {
      title: 'Article Two / chethana',
 heading: 'Article Two',
 date: 'February 16th, 2017',
@@ -24,7 +25,8 @@ content:
                     Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that proves just how dangerous sea creatures can be -- and he even caught it all on video.
                 </p> '
  },
- 'article-three' ={
+ 
+ 'article-three' : {
      title: 'Article Three / chethana',
 heading: 'Article Three',
 date: 'February 20th, 2017',
@@ -35,6 +37,7 @@ content:
                     The hair-raising clip has been video more than three million times (and counting) since Henricks uploaded it last month.
                 </p> '
  };
+ 
 
 function createtemplate (data) {
     var title = data.title;
