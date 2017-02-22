@@ -5,83 +5,84 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+
 var articles = {
- 'article-one' : {
-title: 'Article One / chethana',
-heading: 'Article One',
-date: 'February 16th, 2017',
-content:     
-    '<p>Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that </p>'
+'article-one':  {
+    title: 'Article One chethana',
+    heading:'Article Two',
+    date: 'Feb 16, 2017',
+    content: ` <p> 
+            Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that
+            </p>`
 },
-
- 'article-two' : {
-     title: 'Article Two / chethana',
-heading: 'Article Two',
-date: 'February 16th, 2017',
-content:     
-                '<p> Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that proves just how dangerous sea creatures can be -- and he even caught it all on video. </p>'
-       
-                    
- },
- 
- 'article-three' : {
-     title: 'Article Three / chethana',
-heading: 'Article Three',
-date: 'February 20th, 2017',
-content:     
-               '<p>Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that proves just how dangerous sea creatures can be -- and he even caught it all on video.Henricks, 35, was fishing off the coast of Australia when a bull shark charged at him at full speed, only to impale himself on </p>'
- };
- 
-
-function createtemplate (data) {
+'article-two': {
+    title: 'Article One chethana',
+    heading:'Article Two',
+    date: 'Feb 16, 2017',
+    content: ` <p> 
+            Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that
+            </p>`
+},
+'article-three': {
+    title: 'Article Three / chethana',
+    heading:'Article Three',
+    date: 'Feb 20th, 2017',
+    content: ` <p> 
+            Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that proves just how dangerous sea creatures can be -- and he even caught it all on video.Henricks, 35, was fishing off the coast of Australia when a bull shark charged at him at full speed, only to impale himself on
+            </p>`
+}
+};
+function createTemplate (data) {
     var title = data.title;
     var date = data.date;
     var heading = data.heading;
     var content = data.content;
-    
-var htmltemplate = 
+var htmlTemplate =`
 <html>
-    <head>
-        <title>
-            ${title}
-        </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="/ui/style.css" rel="stylesheet" />
-        <body>
-            <div class="container">
-            <div>
-                <a href='/'>Home</a>
-            </div>
-            <hr/>
-            <h3>
-                ${heading}
-            </h3>
-            <div>
-                ${date}
-            </div>
-            <div>
-               ${content}
-                </div>
-            </div>
-        </body>
-    </head>
+  <head> 
+  <title>
+      ${title}
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale-1" />
+   <link href="/ui/style.css" rel="stylesheet" />
+  </head>  
+    <body>
+        <div class = "container">
+        <div>
+            <a href='/'>Home</a>
+        </div>
+        <hr/> 
+        <h3>
+            ${heading}
+        </h3>
+        <div>
+            ${date}
+        </div>
+        <div>
+${content}
+        </div>
+        </div>
+    </body>
+    
+    
 </html>
-  ;
-   return htmlTemplate;
-}
 
+
+`;
+return htmlTemplate;
+}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-    //articlename == article-one
-    //articles[articlename] == {} content object for the article one
-    var articlename = req.params.articlename;
-   res.send(createTemplate(articles[articlename]));
+app.get('/:articleName', function (req, res) {
+    // articleName == article-one
+    // articles[articleName] == {} content object for article one
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));    
 });
 
-    app.get('/ui/style.css', function (req, res) {
+app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
