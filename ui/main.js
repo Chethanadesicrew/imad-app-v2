@@ -4,3 +4,10 @@ console.log('Loaded!');
 var element = document.getElementedById('main-text');
 
 element.innerHTML = 'New value';
+
+// Move the image
+var img = document.getElementById('img');
+img.oneclick = function () {
+    img.style.marginleft = '100px';
+
+};
