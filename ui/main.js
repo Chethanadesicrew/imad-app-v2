@@ -6,6 +6,7 @@ var element = document.getElementById('main-text');
 element.innerHTML = 'New value';
 
 // Move the image
+var img = document.getElementById('madi');
 var marginLeft = 0;
 function moveRight () {
     marginLeft = marginLeft + 'px';
