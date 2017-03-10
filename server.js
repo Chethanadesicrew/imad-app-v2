@@ -14,32 +14,6 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articles = {
-'article-one':  {
-    title: 'Article One chethana',
-    heading:'Article Two',
-    date: 'Feb 16, 2017',
-    content: ` <p> 
-            Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that
-            </p>`
-},
-'article-two': {
-    title: 'Article One chethana',
-    heading:'Article Two',
-    date: 'Feb 16, 2017',
-    content: ` <p> 
-            Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that
-            </p>`
-},
-'article-three': {
-    title: 'Article Three / chethana',
-    heading:'Article Three',
-    date: 'Feb 20th, 2017',
-    content: ` <p> 
-            Spear fisherman Danny Henricks is fortunate enough to have survived the type of underwater experience that proves just how dangerous sea creatures can be -- and he even caught it all on video.Henricks, 35, was fishing off the coast of Australia when a bull shark charged at him at full speed, only to impale himself on
-            </p>`
-}
-};
 function createTemplate (data) {
     var title = data.title;
     var date = data.date;
