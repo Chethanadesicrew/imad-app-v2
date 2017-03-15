@@ -13,7 +13,7 @@ var config = {
     port: '5432',
     password: 'db-chethanadesicrew-71786'
     
-}
+};
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
