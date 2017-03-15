@@ -29,5 +29,5 @@ console.log(username);
 console.log(password);
 request.open('POST', 'http://chethanadesicrew.imad.hasura-app.io/login', true);
 request.setRequestHeader('Content-type', 'application/json');
-request.send(JSON.srtingify({username: username, password: password}));
+request.send(JSON.stringify({username: username, password: password}));
 };
