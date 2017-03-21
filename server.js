@@ -88,8 +88,8 @@ app.post('/create user', function (req, res) {
     var password = req.body.password;
     
     var salt = crypto.randomBytes(128).toString('hex');
-    var doString = hash(password, salt);
-    pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, doString], function (err, result) {
+    var dbString = hash(password, salt);
+    pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username, dbString], function (err, result) {
          if (err) {
         res.status(500).send(err.toString());
     } else {
@@ -112,8 +112,8 @@ app.post('/login', function (req, res) {
             res.send(403).send('username/password is invalid');
         } else {
             // Match the password
-            var doString = result.rows[0].password;
-            var salt = doString.split('$')[2];
+            var dbString = result.rows[0].password;
+            var salt = dbString.split('$')[2];
             var hashedPassword = hash(password, salt); // Creating a hash based on the password submitted and the original salt
             if (hashedPassword === dbString) {
                 
