@@ -22,6 +22,9 @@ app.use(session({
    cookie: { maxAge: 1000 * 60 * 60 * 24 * 30}
 }));
 
+ app.get('/contact-me', function (res, req) {
+   res.send('Contact Me registered and will be served here');
+});
 
 function createTemplate (data) {
     var title = data.title;
@@ -62,6 +65,8 @@ ${content}
 `;
 return htmlTemplate;
 }
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
