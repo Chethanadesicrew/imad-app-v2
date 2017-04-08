@@ -14,6 +14,12 @@ var config = {
     password: 'db-chethanadesicrew-71786'
     
 };
+
+ app.get('/contact-me', function (res, req) {
+   res.send('Contact Me registered and will be served here');
+});
+
+
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
@@ -22,9 +28,7 @@ app.use(session({
    cookie: { maxAge: 1000 * 60 * 60 * 24 * 30}
 }));
 
- app.get('/contact-me', function (res, req) {
-   res.send('Contact Me registered and will be served here');
-});
+
 
 function createTemplate (data) {
     var title = data.title;
