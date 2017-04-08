@@ -15,11 +15,6 @@ var config = {
     
 };
 
- app.get('/contact-me', function (res, req) {
-   res.send('Contact Me registered and will be served here');
-});
-
-
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
