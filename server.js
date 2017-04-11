@@ -66,8 +66,8 @@ return htmlTemplate;
 }
 
 
-app.get('/contact-me', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'contact-me.html'));
+app.get('/contact-me.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'contact-me'));
 });
 
 app.get('/', function (req, res) {
