@@ -70,6 +70,10 @@ app.get('/contact-me.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'contact-me.html'));
 });
 
+app.get('/about-me.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'about-me.html'));
+});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
