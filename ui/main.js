@@ -21,6 +21,8 @@ alert('Logged in successfully');
 }
 // Not done yet
 };
+var x = document.createElement("INPUT");
+x.setAttribute("type", "search"); 
 
 // Make the request
 var username = document.getElementById('username').value;
